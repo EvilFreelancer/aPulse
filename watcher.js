@@ -1,16 +1,24 @@
 import {promises as fs, watchFile} from 'fs';
+import {relative} from 'path';
 let config = (await import('./config.js')).default;
+let statusFile = config.statusFile || './static/status.json';
+
+const updateClientConfig = async () => {
+       let rel = relative('static', statusFile).replace(/\\/g, '/');
+       await fs.writeFile('./static/client-config.js', `window.statusFile = './${rel}';`);
+};
+await updateClientConfig();
 
 watchFile('./config.js', async ()=>{ // Dynamically reload config and watch it for changes.
-	try {
-		config = (await import('./config.js?refresh='+Date.now())).default;
-		console.log('Reloaded config file.')
-	} catch(e) {
-		console.error(e);
-	}
+       try {
+               config = (await import('./config.js?refresh='+Date.now())).default;
+               statusFile = config.statusFile || './static/status.json';
+               await updateClientConfig();
+               console.log('Reloaded config file.')
+       } catch(e) {
+               console.error(e);
+       }
 });
-
-const statusFile = './static/status.json';
 
 const delay  = async t=>new Promise(r=>setTimeout(r, t));
 const handlize = s=>s.toLowerCase().replace(/[^a-z0-9]/g, ' ').trim().replace(/\s+/g, '-');

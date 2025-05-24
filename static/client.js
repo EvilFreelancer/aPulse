@@ -1,14 +1,15 @@
 let config;
 let lastPulse = 0;
+const STATUS_FILE = window.statusFile || './status.json';
 const setError = (text)=>{document.querySelector('error-notice').innerText = text;};
 document.addEventListener("DOMContentLoaded", async () => {
 	let $main = document.querySelector('main');
 	const refreshStatus = async () => {
-		try {
-			const response = await fetch('./status.json', {cache: "no-cache"});
-			if (!response.ok) {
-				throw new Error(`Error fetching status.json: ${response.statusText}`);
-			}
+               try {
+                        const response = await fetch(STATUS_FILE, {cache: "no-cache"});
+                        if (!response.ok) {
+                                throw new Error(`Error fetching status file: ${response.statusText}`);
+                        }
 			setError(''); // Clear errors
 			const status = await response.json();
 			$main.innerHTML = '';

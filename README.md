@@ -30,6 +30,7 @@ export default {
 	verbose				: true, // Whether or not to output pulse messages in the console
 	readableStatusJson	: true, // Format status.json to be human readable
 	logsMaxDatapoints	: 200, // Maximum datapoints history to keep (per endpoint)
+       statusFile                      : './static/status.json', // Path to status.json file. Dashboard path auto-written to static/client-config.js
 	telegram			: {}, // optional, tokens to send notifications through telegram
 	slack				: {}, // optional, tokens to send notifications through slack
 	discord				: {}, // optional, tokens to send notifications through discord
@@ -93,7 +94,7 @@ pm2 save
 ```
 
 ### Serving the status page
-The `watcher.js` script only takes care of running the status checks and updates the `status.json` file in the `static/` folder. If you want to view the final result, you simply need to serve the files in the `static/` folder. You can use Nginx with a config like:
+The `watcher.js` script only takes care of running the status checks and updates the file defined by `statusFile` (by default `static/status.json`). It also writes the relative location to `static/client-config.js` so the dashboard knows where to fetch the status file. If you want to view the final result, you simply need to serve the files in the `static/` folder (or wherever your dashboard points to). You can use Nginx with a config like:
 ```nginx
 # Pulse
 server {
