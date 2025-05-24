@@ -1,1 +1,305 @@
-{}
+{
+  "sites": {
+    "google": {
+      "name": "Google",
+      "endpoints": {
+        "homepage": {
+          "name": "Homepage",
+          "link": "https://www.google.com",
+          "logs": [
+            {
+              "t": 1748087741320,
+              "dur": 149.993578,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 55.36531200000002,
+              "dll": 10.84602799999999,
+              "err": "\"mustFind\" check failed"
+            },
+            {
+              "t": 1748087757965,
+              "dur": 148.39908100000002,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 52.42947699999999,
+              "dll": 17.866462000000013,
+              "err": "\"mustFind\" check failed"
+            },
+            {
+              "t": 1748088657969,
+              "dur": 114.20320800004993,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 55.46503199997824,
+              "dll": 3.61165900004562,
+              "err": "\"mustFind\" check failed"
+            },
+            {
+              "t": 1748089557970,
+              "dur": 197.5670749999117,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 63.359468000009656,
+              "dll": 79.4861919998657,
+              "err": "\"mustFind\" check failed"
+            },
+            {
+              "t": 1748090457973,
+              "dur": 103.08965699980035,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 53.5293140001595,
+              "dll": 3.8372279996983707,
+              "err": "\"mustFind\" check failed"
+            },
+            {
+              "t": 1748091357976,
+              "dur": 138.84726900001988,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 63.68227700004354,
+              "dll": 3.737294999882579,
+              "err": "\"mustFind\" check failed"
+            },
+            {
+              "t": 1748092257977,
+              "dur": 108.30177299957722,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 57.426580000668764,
+              "dll": 3.4700069995597005,
+              "err": "\"mustFind\" check failed"
+            },
+            {
+              "t": 1748093157981,
+              "dur": 112.15920299943537,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 60.26049399934709,
+              "dll": 4.292896999977529,
+              "err": "\"mustFind\" check failed"
+            },
+            {
+              "t": 1748094057981,
+              "dur": 104.02492600027472,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 53.809276999905705,
+              "dll": 3.9284429997205734,
+              "err": "\"mustFind\" check failed"
+            }
+          ]
+        }
+      }
+    },
+    "traefik": {
+      "name": "Traefik",
+      "endpoints": {
+        "lb01-trefik-443": {
+          "name": "Reverse Proxy",
+          "link": "https://lb01",
+          "logs": [
+            {
+              "t": 1748099643036,
+              "err": "TypeError: fetch failed",
+              "dur": 94.937342,
+              "ttfb": 94.937342
+            }
+          ]
+        }
+      }
+    },
+    "litellm": {
+      "name": "LiteLLM",
+      "endpoints": {
+        "lb01-litellm-4000": {
+          "name": "LiteLLM / API",
+          "link": "http://lb01:4000",
+          "logs": [
+            {
+              "t": 1748099643132,
+              "dur": 12.401092000000006,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 3.7235589999999945,
+              "dll": 4.344725000000011
+            }
+          ]
+        },
+        "lb01-litellm-15000": {
+          "name": "LiteLLM / GigaChat Adapter",
+          "link": "http://lb01:15000",
+          "logs": [
+            {
+              "t": 1748099643146,
+              "dur": 4.7646939999999915,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 2.1338580000000036,
+              "dll": 0.6840509999999824,
+              "err": "HTTP Status 404: Not Found"
+            }
+          ]
+        }
+      }
+    },
+    "whisper": {
+      "name": "Whisper",
+      "endpoints": {
+        "gpu01-whisper-12000": {
+          "name": "Whisper / Load Balancer",
+          "link": "http://gpu01:12000",
+          "logs": [
+            {
+              "t": 1748099643153,
+              "dur": 337.86044100000004,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 147.73899999999998,
+              "dll": 4.780635000000018
+            }
+          ]
+        },
+        "gpu01-whisper-9311": {
+          "name": "Whisper Large v3 Turbo (gpu01 #1)",
+          "link": "http://gpu01:9311",
+          "logs": [
+            {
+              "t": 1748099643491,
+              "dur": 3.554265999999984,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 1.0672079999999937,
+              "dll": 0.9303069999999707
+            }
+          ]
+        },
+        "gpu01-whisper-9312": {
+          "name": "Whisper Large v3 Turbo (gpu01 #2)",
+          "link": "http://gpu01:9312",
+          "logs": [
+            {
+              "t": 1748099643496,
+              "dur": 1.8227679999999964,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 0.38554499999997915,
+              "dll": 0.6364889999999832
+            }
+          ]
+        },
+        "gpu02-whisper-9311": {
+          "name": "Whisper Large v3 Turbo (gpu02 #1)",
+          "link": "http://gpu02:9311",
+          "logs": [
+            {
+              "t": 1748099643500,
+              "dur": 2.493159999999989,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 0.8190170000000307,
+              "dll": 0.5700539999999705
+            }
+          ]
+        },
+        "gpu02-whisper-9312": {
+          "name": "Whisper Large v3 Turbo (gpu02 #2)",
+          "link": "http://gpu02:9312",
+          "logs": [
+            {
+              "t": 1748099643504,
+              "dur": 1.6794530000000236,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 0.2926729999999793,
+              "dll": 0.4940589999999929
+            }
+          ]
+        }
+      }
+    },
+    "ollama": {
+      "name": "Ollama",
+      "endpoints": {
+        "gpu02-ollama-11434": {
+          "name": "Ollama (gpu02)",
+          "link": "http://gpu02:11434",
+          "logs": [
+            {
+              "t": 1748099643507,
+              "dur": 1.5874860000000126,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 0.3414589999999862,
+              "dll": 0.568977000000018
+            }
+          ]
+        }
+      }
+    },
+    "fish-speech": {
+      "name": "Fish Speech",
+      "endpoints": {
+        "gpu02-fishspeech-13000": {
+          "name": "Fish Speech (gpu02)",
+          "link": "http://gpu02:13000",
+          "logs": [
+            {
+              "t": 1748099643509,
+              "dur": 2.1904840000000263,
+              "dns": 0,
+              "tcp": 0,
+              "ttfb": 0.7611540000000332,
+              "dll": 0.7002239999999915,
+              "err": "HTTP Status 404: Not Found"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "config": {
+    "interval": 15,
+    "nDataPoints": 90,
+    "responseTimeGood": 300,
+    "responseTimeWarning": 600
+  },
+  "ui": [
+    [
+      "traefik",
+      [
+        "lb01-trefik-443"
+      ]
+    ],
+    [
+      "litellm",
+      [
+        "lb01-litellm-4000",
+        "lb01-litellm-15000"
+      ]
+    ],
+    [
+      "whisper",
+      [
+        "gpu01-whisper-12000",
+        "gpu01-whisper-9311",
+        "gpu01-whisper-9312",
+        "gpu02-whisper-9311",
+        "gpu02-whisper-9312"
+      ]
+    ],
+    [
+      "ollama",
+      [
+        "gpu02-ollama-11434"
+      ]
+    ],
+    [
+      "fish-speech",
+      [
+        "gpu02-fishspeech-13000"
+      ]
+    ]
+  ],
+  "lastPulse": 1748099643513
+}

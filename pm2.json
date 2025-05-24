@@ -1,6 +1,6 @@
 {
 	"apps": [{
 		"name"			: "aPulse",
-		"script"                : "./entrypoint.sh"
+		"script"        : "./entrypoint.sh"
 	}]
 }
