@@ -4,7 +4,7 @@ services:
     build:
       context: .
     volumes:
-      - ./apulse_data:/app/static
+      - ./apulse_data:/app/data
       - ./config.js:/app/config.js
     restart: unless-stopped
 
@@ -14,5 +14,5 @@ services:
       - ./apulse_data:/usr/share/nginx/html
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - "80:80"
+      - "8080:80"
     restart: unless-stopped
