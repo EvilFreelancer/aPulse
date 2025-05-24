@@ -1,16 +1,16 @@
 import {promises as fs, watchFile} from 'fs';
 let config = (await import('./config.js')).default;
+let statusFile = config.statusFile || './static/status.json';
 
 watchFile('./config.js', async ()=>{ // Dynamically reload config and watch it for changes.
-	try {
-		config = (await import('./config.js?refresh='+Date.now())).default;
-		console.log('Reloaded config file.')
-	} catch(e) {
-		console.error(e);
-	}
+       try {
+               config = (await import('./config.js?refresh='+Date.now())).default;
+               statusFile = config.statusFile || './static/status.json';
+               console.log('Reloaded config file.')
+       } catch(e) {
+               console.error(e);
+       }
 });
-
-const statusFile = './static/status.json';
 
 const delay  = async t=>new Promise(r=>setTimeout(r, t));
 const handlize = s=>s.toLowerCase().replace(/[^a-z0-9]/g, ' ').trim().replace(/\s+/g, '-');
