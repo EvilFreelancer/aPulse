@@ -13,7 +13,7 @@ Visit https://apulse.ybouane.com for a demo!
 - Check content for validity, HTTP status...
 - Measures latency
 - Minimal and easy to use dashboard
-- Easy to setup. Run the watcher.js script and open the static/index.html page to view the dashboard.
+- Easy to setup. Run the `entrypoint.sh` script and open the static/index.html page to view the dashboard.
 - Auto-reload of the config file (no need to restart the watcher)
 - No dependencies
 
@@ -30,6 +30,7 @@ export default {
 	verbose				: true, // Whether or not to output pulse messages in the console
 	readableStatusJson	: true, // Format status.json to be human readable
 	logsMaxDatapoints	: 200, // Maximum datapoints history to keep (per endpoint)
+        statusFile                      : './static/status.json', // Path to status.json file
 	telegram			: {}, // optional, tokens to send notifications through telegram
 	slack				: {}, // optional, tokens to send notifications through slack
 	discord				: {}, // optional, tokens to send notifications through discord
@@ -67,12 +68,12 @@ Clone the repo:
 git clone https://github.com/ybouane/aPulse.git
 ```
 
-Either run the watcher.js script directly (you need to keep it running in the background)
+Either run the entrypoint.sh script directly (you need to keep it running in the background)
 ```shell
 cd aPulse
 ```
 ```shell
-node watcher.js
+./entrypoint.sh
 ```
 
 Or use a tool like PM2 (prefered method):
@@ -93,7 +94,7 @@ pm2 save
 ```
 
 ### Serving the status page
-The `watcher.js` script only takes care of running the status checks and updates the `status.json` file in the `static/` folder. If you want to view the final result, you simply need to serve the files in the `static/` folder. You can use Nginx with a config like:
+The `watcher.js` script only takes care of running the status checks and updates the file defined by `statusFile` (by default `static/status.json`). The `entrypoint.sh` script patches `static/client.js` with this path before starting `watcher.js`. If you want to view the final result, you simply need to serve the files in the `static/` folder (or wherever your dashboard points to). You can use Nginx with a config like:
 ```nginx
 # Pulse
 server {
