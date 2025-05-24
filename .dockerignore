@@ -2,7 +2,7 @@
 
 static/status.json
 .idea
-config.js
+#config.js
 docker-compose.yml
 apulse_data
 

@@ -7,7 +7,7 @@ export default {
 	verbose				: true, // Whether or not to output pulse messages in the console
 	readableStatusJson	: true, // Format status.json to be human readable
 	logsMaxDatapoints	: 200, // Maximum datapoints history to keep (per endpoint)
-	statusFile					: './static/status.json', // Path to status.json file
+	statusFile			: './static/status.json', // Path to status.json file
 	telegram			: { // optional, tokens to send notifications through telegram
 		botToken	: '', // Contact @BotFather on telegram to create a bot
 		chatId		: '',// Send a message to the bot, then visit https://api.telegram.org/bot<token>/getUpdates to get the chatId

@@ -7,7 +7,7 @@ Visit https://apulse.ybouane.com for a demo!
 [<img src="screenshot.png" alt="aPulse — Server Status Open Source NodeJS Tool" />](https://apulse.ybouane.com)
 
 # Features
-- Highly and easily configurable, edit the config.js file to add test endpoints and configure the watcher
+- Highly and easily configurable, copy config.js from config.dist.js, then edit file to add test endpoints and configure the watcher
 - Supports sending outage notifications by: Telegram, Discord, Slack, SMS (Twilio API), Email (SendGrid API)
 - Uses the Fetch API to test server-responses, you can configure GET, POST, PUT... requests and have full control over the fetch options.
 - Check content for validity, HTTP status...
@@ -30,7 +30,7 @@ export default {
 	verbose				: true, // Whether or not to output pulse messages in the console
 	readableStatusJson	: true, // Format status.json to be human readable
 	logsMaxDatapoints	: 200, // Maximum datapoints history to keep (per endpoint)
-        statusFile                      : './static/status.json', // Path to status.json file
+    statusFile          : './static/status.json', // Path to status.json file
 	telegram			: {}, // optional, tokens to send notifications through telegram
 	slack				: {}, // optional, tokens to send notifications through slack
 	discord				: {}, // optional, tokens to send notifications through discord
