@@ -21,8 +21,4 @@ else
   echo "statusFile is in ./static; skipping copy."
 fi
 
-ESC_PATH=$(printf '%s\n' "$STATUS_FILE" | sed 's/[&/]/\\&/g')
-
-sed -E "s|(fetch\(['\"])(\.\/status\.json)(['\"])|\1${ESC_PATH}\3|" -i static/client.js
-
 exec node watcher.js
