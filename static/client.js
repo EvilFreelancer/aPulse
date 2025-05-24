@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 					$endpointName = document.createElement('h3');
 					$endpointName.innerText = endpoint.name;
-					if(endpoint.link) {
+					if((config.showLinks ?? true) && endpoint.link) {
 						let $link = document.createElement('a');
 						$link.href = endpoint.link;
 						$link.target = '_blank';

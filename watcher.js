@@ -138,6 +138,7 @@ while(true) {
 			nDataPoints				: config.nDataPoints,
 			responseTimeGood		: config.responseTimeGood,
 			responseTimeWarning		: config.responseTimeWarning,
+			showLinks 				: config.showLinks,
 		};
 
 		status.ui = [];
